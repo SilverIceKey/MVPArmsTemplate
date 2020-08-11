@@ -1,23 +1,23 @@
 package ${packageName}${presenterPackageName}
 
-import me.jessyan.art.di.component.AppComponent
-import me.jessyan.art.mvp.BasePresenter
-import me.jessyan.rxerrorhandler.core.RxErrorHandler
-
-<#if modelName?has_content>
-import ${packageName}${modelPackageName}.${modelName}
-</#if>
+<#if needActivity>import com.silvericekey.skutilslibrary.base.BPActivity</#if>
+<#if needFragment>import com.silvericekey.skutilslibrary.base.BPFragment</#if>
 
 <#import "root://activities/MVPArtTemplate/globals.xml.ftl" as gb>
 
 <@gb.fileHeader />
-class ${presenterName}(appComponent:AppComponent) :
-BasePresenter <#if modelName?has_content><${modelName}></#if>(<#if modelName?has_content>appComponent.repositoryManager().createRepository(${modelName}::class.java)<#else></#if>) {
-    private val mErrorHandler by lazy{
-        appComponent.rxErrorHandler()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
+<#if needActivity>
+class ${presenterName}(activity:${pageName}Activity) :
+BPActivity(activity) {
+    
 }
+</#if>
+
+
+<#if needFragment>
+class ${presenterName}(fragment:${pageName}Fragment) :
+BPFragment(fragment) {
+    
+}
+</#if>
+

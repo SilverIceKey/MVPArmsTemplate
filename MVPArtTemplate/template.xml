@@ -67,7 +67,7 @@
         name="Ativity Package Name"
         type="string"
         constraints="nonempty"
-        suggest=".mvp.ui.activity"
+        suggest=".features"
         visibility="needActivity"
         help="Activity 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名 (基于 Root Package Name )"
         />
@@ -111,7 +111,7 @@
         name="Fragment Package Name"
         type="string"
         constraints="nonempty"
-        suggest=".mvp.ui.fragment"
+        suggest=".features"
         visibility="needFragment"
         help="Fragment 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名 (基于 Root Package Name )"
         />  
@@ -139,7 +139,7 @@
         name="Presenter Package Name"
         type="string"
         constraints="nonempty"
-        suggest=".mvp.presenter"
+        suggest=".features"
         visibility="needPresenter"
         help="Presenter 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名 (基于 Root Package Name )"
         /> 
@@ -151,13 +151,14 @@
         constraints="unique"
         suggest="${pageName}Repository"
         default="Main"
+        visibility="needModel"
         help="请填写 Model 名(若此栏为空,则 Presenter 不会引用任何 Model),若填写的 Model 并未创建,请勾选下面的单选框" />         
 
 <parameter
         id="needModel"
         name="Generate Model"
         type="boolean"
-        default="true"
+        default="false"
         help="是否需要生成 Model ? 不勾选则不生成" /> 
 
 
@@ -166,7 +167,7 @@
         name="Model Package Name"
         type="string"
         constraints="nonempty"
-        suggest=".mvp.model"
+        suggest=".features.model"
         visibility="needModel"
         help="Model 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名 (基于 Root Package Name )"
         />  
